@@ -1,0 +1,95 @@
+package fitness_2;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.*;
+import javax.swing.*;
+public class test1_fitness extends JFrame {
+	test1_calculation cal;
+	public test1_fitness() {
+		JFrame frame;
+		JPanel panel;
+		JPanel panel1;
+		JPanel panel2;
+		JPanel panel3;
+		JPanel panel4;
+		JButton calBtn;
+		
+		
+		JTextField numText,nameText, timeText, satisText, dissatisText;
+		frame = new JFrame("Scheduling");
+		panel = new JPanel();
+		panel1 = new JPanel();
+		panel2 = new JPanel(new GridLayout(5,1));
+		panel3 = new JPanel(new GridLayout(5,1));
+		panel4 = new JPanel();
+		
+		JLabel noticeLabel = new JLabel("Enter data seperated by space");
+		panel1.add(noticeLabel); 
+		JLabel numLabel = new JLabel("Number of user", JLabel.CENTER);
+		JLabel nameLabel = new JLabel("Name",JLabel.CENTER);
+		JLabel timeLabel = new JLabel("Waiting time",JLabel.CENTER);
+		JLabel satisLabel = new JLabel("Satisfaction",JLabel.CENTER);
+		JLabel dissatisLabel = new JLabel("Dissatisfaction",JLabel.CENTER);
+		
+		panel2.add(numLabel);
+		panel2.add(nameLabel);
+		panel2.add(timeLabel);
+		panel2.add(satisLabel);
+		panel2.add(dissatisLabel);
+		
+		numText = new JTextField(2);
+		nameText = new JTextField(20);
+		timeText = new JTextField(20);
+		satisText = new JTextField(20);
+		dissatisText = new JTextField(20);
+		
+		panel3.add(numText);
+		panel3.add(nameText);
+		panel3.add(timeText);
+		panel3.add(satisText);
+		panel3.add(dissatisText);
+		
+		
+		
+		calBtn = new JButton("Scheduling"); 
+		panel4.add(calBtn);
+
+		calBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {}
+		});
+		
+		calBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) { 
+				String numString = numText.getText().trim();
+				String nameString = nameText.getText().trim();
+				String timeString = timeText.getText().trim();
+				String satisString = satisText.getText().trim();
+				String dissatisString = dissatisText.getText().trim();
+				
+				cal = new test1_calculation();
+				cal.test1_calculationPanel(numString,nameString, timeString, satisString, dissatisString);
+			}
+		});
+//		orderText = new JTextField(20);
+		frame.add(panel,BorderLayout.NORTH);
+		frame.add(panel1,BorderLayout.NORTH);
+		frame.add(panel2,BorderLayout.WEST);
+		frame.add(panel3, BorderLayout.EAST);
+		frame.add(panel4,BorderLayout.SOUTH);
+		frame.setBounds(450,250,350,200);
+		frame.setResizable(false);
+		frame.setVisible(true);
+		
+//		setVisible(true);
+//		setSize(600,400);
+//		setLocationRelativeTo(null);
+//		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public static void main(String[] args) {
+		new test1_fitness();
+	}
+
+}

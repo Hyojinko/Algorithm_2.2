@@ -24,41 +24,47 @@ public class test1_fitness extends JFrame {
 		panel4 = new JPanel();
 		
 		JLabel noticeLabel = new JLabel("Enter data seperated by space");
+		//enter user's data seperated by space.
 		panel1.add(noticeLabel); 
 		JLabel numLabel = new JLabel("Number of user", JLabel.CENTER);
+		//enter the number of user.
 		JLabel nameLabel = new JLabel("Name",JLabel.CENTER);
+		//enter entire user's name.
 		JLabel timeLabel = new JLabel("Waiting time",JLabel.CENTER);
+		//enter each user's waiting time.
 		JLabel satisLabel = new JLabel("Satisfaction",JLabel.CENTER);
+		//enter each user's satisfaction when they use fitness machine.
 		JLabel dissatisLabel = new JLabel("Dissatisfaction",JLabel.CENTER);
-		
+		//enter each user's dissatisfaction per one hour.
 		panel2.add(numLabel);
 		panel2.add(nameLabel);
 		panel2.add(timeLabel);
 		panel2.add(satisLabel);
 		panel2.add(dissatisLabel);
+		//add all label
 		
 		numText = new JTextField(2);
 		nameText = new JTextField(20);
 		timeText = new JTextField(20);
 		satisText = new JTextField(20);
 		dissatisText = new JTextField(20);
-		
+		//the text field for entering datas.
 		panel3.add(numText);
 		panel3.add(nameText);
 		panel3.add(timeText);
 		panel3.add(satisText);
 		panel3.add(dissatisText);
-		
+		//add all textfield.
 		
 		
 		calBtn = new JButton("Scheduling"); 
 		panel4.add(calBtn);
-
+		//create button for scheduling(calculating)
 		calBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {}
 		});
-		
+		//action when button clicked.
 		calBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) { 
@@ -67,9 +73,10 @@ public class test1_fitness extends JFrame {
 				String timeString = timeText.getText().trim();
 				String satisString = satisText.getText().trim();
 				String dissatisString = dissatisText.getText().trim();
-				
+				//store textfield values to string.
 				cal = new test1_calculation();
 				cal.test1_calculationPanel(numString,nameString, timeString, satisString, dissatisString);
+				//import calculation class and send values to that class.
 			}
 		});
 //		orderText = new JTextField(20);

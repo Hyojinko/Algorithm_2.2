@@ -119,6 +119,7 @@ public class test1_calculation  {
 				order[i] = p[i].name;
 				
 			}
+			//reorder the member.
 			for(int i = 0;i < n;i++) {
 				if (i <= p[i].waitingTime) {
 	                tot_satisfaction += p[i].satisfaction;
@@ -126,6 +127,7 @@ public class test1_calculation  {
 	            else
 	                tot_satisfaction += p[i].satisfaction - ((i - p[i].waitingTime) * p[i].dissatisfaction);
 			}
+			//calculating satisfaction
 			
 			String orderResult = Arrays.toString(order);
 			JLabel orderLabel = new JLabel("Order: " + orderResult);

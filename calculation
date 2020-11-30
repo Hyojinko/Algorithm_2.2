@@ -22,6 +22,7 @@ class Person{
         this.satisfaction = satisfaction;
         this.dissatisfaction = dissatisfaction;
         this.index = index;
+	//define values using struct.
     }
 
    String getName(){
@@ -51,9 +52,11 @@ public class test1_calculation  {
 			String[] timeArr = timeString.split(" ");
 			String[] satisArr = satisString.split(" ");
 			String[] dissatisArr = dissatisString.split(" ");
+			//Stores the received string value as an array.
+			
 			if(checkStr(numString))
 				n = Integer.parseInt(numString);
-			
+			// type casting String to int
 			Person p[] = new Person[n];
 
 			for(int i = 0;i < n;i++) {
@@ -70,6 +73,7 @@ public class test1_calculation  {
 					timeIntArr[i] = Integer.parseInt(timeArr[i]);
 					satisIntArr[i] = Integer.parseInt(satisArr[i]);
 					dissatisIntArr[i] = Integer.parseInt(dissatisArr[i]);
+					//type casting string array  to int array
 					}
 			}
 			
@@ -79,8 +83,11 @@ public class test1_calculation  {
 				p[i].satisfaction = satisIntArr[i];
 				p[i].waitingTime = timeIntArr[i];
 				p[i].index = i;
+				
+				//stores all values to person class
 			}
-
+			
+			//calculating efficiency.
 		
 			for(int i = 0;i < n-1;i++){
                 for(int j = 0;j < n - i - 1;j++){
@@ -88,6 +95,7 @@ public class test1_calculation  {
                         Person temp = p[j+1];
                         p[j+1] = p[j];
                         p[j] = temp;
+			
                     }
                     else if((double)p[j].dissatisfaction / ((double)p[j].waitingTime + 1) == (double)p[j+1].dissatisfaction / ((double)p[j+1].waitingTime+1)){
                         if(p[j].dissatisfaction > (p[j+1].waitingTime+1) * p[j+1].dissatisfaction){
